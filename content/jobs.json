@@ -1,0 +1,105 @@
+[
+  {
+    "slug": "personal-support-worker",
+    "title": "Personal Support Worker",
+    "industry": "healthcare",
+    "location": "Oakville, ON",
+    "employmentType": "FULL_TIME",
+    "postedDate": "2026-08-01",
+    "validThrough": "2026-12-31",
+    "summary": "Provide compassionate, hands-on care to clients in home and residential care settings.",
+    "description": "We're hiring Personal Support Workers for placements across the Greater Toronto Area. You'll assist clients with daily living activities, monitor and report changes in condition, and provide companionship and dignity-centered care.",
+    "requirements": [
+      "PSW certification recognized in Ontario",
+      "Valid CPR/First Aid certification",
+      "Clear vulnerable sector check",
+      "Strong communication skills in English"
+    ],
+    "salaryRange": "$19 - $24 / hour"
+  },
+  {
+    "slug": "nursing-assistant",
+    "title": "Nursing Assistant",
+    "industry": "healthcare",
+    "location": "Mississauga, ON",
+    "employmentType": "FULL_TIME",
+    "postedDate": "2026-08-05",
+    "validThrough": "2026-12-31",
+    "summary": "Support nursing staff with patient care duties in a fast-paced clinical environment.",
+    "description": "Assist registered nurses with patient monitoring, basic clinical tasks, and documentation. This role suits candidates with formal nursing assistant training seeking Canadian clinical experience.",
+    "requirements": [
+      "Nursing Assistant diploma or equivalent",
+      "Current immunization records",
+      "Ability to work rotating shifts"
+    ],
+    "salaryRange": "$21 - $26 / hour"
+  },
+  {
+    "slug": "store-manager",
+    "title": "Store Manager",
+    "industry": "retail",
+    "location": "Toronto, ON",
+    "employmentType": "FULL_TIME",
+    "postedDate": "2026-07-20",
+    "validThrough": "2026-12-31",
+    "summary": "Lead daily operations, staff performance, and sales targets for a busy retail location.",
+    "description": "Own the day-to-day success of a retail location — team scheduling, inventory oversight, customer experience, and driving sales targets. Prior retail leadership experience required.",
+    "requirements": [
+      "2+ years retail management experience",
+      "Proven team leadership skills",
+      "Comfort with POS and inventory systems"
+    ],
+    "salaryRange": "$48,000 - $58,000 / year"
+  },
+  {
+    "slug": "visual-merchandiser",
+    "title": "Visual Merchandiser",
+    "industry": "retail",
+    "location": "Toronto, ON",
+    "employmentType": "FULL_TIME",
+    "postedDate": "2026-07-22",
+    "validThrough": "2026-12-31",
+    "summary": "Design and execute in-store displays that drive engagement and sales.",
+    "description": "Plan and install seasonal window and floor displays, maintain visual merchandising standards across the store, and collaborate with marketing on campaign rollouts.",
+    "requirements": [
+      "Portfolio of retail merchandising work",
+      "Eye for layout, color, and brand consistency",
+      "Comfortable with physical setup work"
+    ],
+    "salaryRange": "$40,000 - $46,000 / year"
+  },
+  {
+    "slug": "chef",
+    "title": "Chef",
+    "industry": "hospitality",
+    "location": "Oakville, ON",
+    "employmentType": "FULL_TIME",
+    "postedDate": "2026-07-15",
+    "validThrough": "2026-12-31",
+    "summary": "Lead kitchen operations and menu execution for a full-service restaurant.",
+    "description": "Oversee kitchen staff, maintain food safety standards, manage inventory and food cost, and execute menu items to a consistently high standard.",
+    "requirements": [
+      "Red Seal certification or equivalent experience",
+      "Food Handler certification",
+      "3+ years in a professional kitchen"
+    ],
+    "salaryRange": "$50,000 - $62,000 / year"
+  },
+  {
+    "slug": "restaurant-server",
+    "title": "Restaurant Server",
+    "industry": "hospitality",
+    "location": "Mississauga, ON",
+    "employmentType": "PART_TIME",
+    "postedDate": "2026-08-10",
+    "validThrough": "2026-12-31",
+    "summary": "Deliver attentive, friendly table service in a busy dining environment.",
+    "description": "Greet and serve guests, take orders accurately, and provide a memorable dining experience. Evening and weekend availability required.",
+    "requirements": [
+      "Smart Serve certification (or willingness to obtain)",
+      "Prior serving experience preferred",
+      "Excellent communication skills"
+    ],
+    "salaryRange": "$17.20 / hour + tips"
+  }
+]
