@@ -6,9 +6,9 @@ import DynamicIcon from "@/components/DynamicIcon";
 import { industries } from "@/lib/site";
 import { ArrowRight } from "lucide-react";
 
-export default function IndustriesSection() {
+export default function IndustriesSection({ homepage = false }) {
   return (
-    <section className="bg-white py-24">
+    <section className={`py-24 ${homepage ? "bg-white" : "bg-white"}`}>
       <Container>
         <SectionHeading
           eyebrow="Industries"
@@ -21,7 +21,7 @@ export default function IndustriesSection() {
             <Reveal key={industry.slug} delay={i * 0.1}>
               <Link
                 href={`/industries/${industry.slug}`}
-                className="group relative block h-[420px] overflow-hidden rounded-3xl"
+                className={`group relative block overflow-hidden rounded-3xl border transition duration-300 hover:-translate-y-1 hover:shadow-xl ${homepage ? "h-[420px] border-red-100 bg-[#fff7f5]" : "h-[420px] border-transparent"}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -30,7 +30,7 @@ export default function IndustriesSection() {
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent transition duration-300 group-hover:from-brand-dark/90" />
+                <div className={`absolute inset-0 transition duration-300 ${homepage ? "bg-linear-to-t from-ink/80 via-ink/10 to-transparent group-hover:from-brand/85" : "bg-gradient-to-t from-ink via-ink/60 to-transparent group-hover:from-brand-dark/90"}`} />
 
                 <div className="absolute inset-x-0 bottom-0 p-7">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white backdrop-blur-sm">

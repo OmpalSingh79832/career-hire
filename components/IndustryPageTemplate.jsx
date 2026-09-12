@@ -1,8 +1,8 @@
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import DynamicIcon from "@/components/DynamicIcon";
+import CTAButton from "@/components/CTAButton";
 import { breadcrumbSchema, JsonLd } from "@/lib/structuredData";
 import { getJobsByIndustry } from "@/lib/jobs";
 import { ArrowRight, ArrowUpRight, CheckCircle2, UsersRound } from "lucide-react";
@@ -24,24 +24,41 @@ export default function IndustryPageTemplate({ industry }) {
         ])}
       />
 
-      <PageHero
-        eyebrow="Industries"
-        title={`${industry.name} Recruitment`}
-        description={industry.heroDescription}
-        ctaLabel="Hire With Us"
-        ctaHref="/contact"
-        image={industry.image}
-      />
+      <section className="relative overflow-hidden bg-[#f8f6f2] py-16 md:pb-20 md:pt-8">
+        <Container className="relative grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
+          <Reveal>
+            <div className="relative z-10">
+              <div className="mb-7 flex items-center gap-3"><span className="h-px w-10 bg-brand" /><span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-brand">Industries · {industry.name}</span></div>
+              <h1 className="max-w-3xl font-display text-[3.7rem] font-semibold leading-[0.88] tracking-[-0.055em] text-ink sm:text-6xl lg:text-[6.4rem]">{industry.name}<br /><span className="text-brand">recruitment</span><br />done right.</h1>
+              <p className="mt-8 max-w-lg text-base leading-7 text-slate-600 sm:text-lg">{industry.heroDescription}</p>
+              <CTAButton href="/contact" className="mt-9">Hire with us</CTAButton>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="relative mx-auto w-full max-w-xl">
+              <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-brand/10" />
+              <div className="absolute -bottom-8 -left-8 h-40 w-40 rounded-full border border-brand/20" />
+              <div className="relative overflow-hidden rounded-4xl rounded-bl-[7rem] bg-brand p-3 shadow-2xl">
+                <div className="overflow-hidden rounded-3xl rounded-bl-[6rem]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={industry.image} alt={`${industry.name} professionals`} loading="eager" className="h-120 w-full object-cover transition duration-700 hover:scale-105 sm:h-150" />
+                </div>
+                <div className="absolute bottom-8 left-8 rounded-2xl bg-white/95 px-6 py-5 shadow-xl backdrop-blur"><p className="text-xs font-bold uppercase tracking-widest text-brand">Specialist sector</p><p className="mt-1 font-display text-xl font-semibold text-ink">{industry.name} talent</p></div>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
 
-      <section className="border-b border-white/10 bg-ink py-5">
+      <section className="border-b border-red-100 bg-white py-5">
         <Container className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <p className="flex items-center gap-3 text-sm font-semibold text-white">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white">
+          <p className="flex items-center gap-3 text-sm font-semibold text-ink">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-brand">
               <UsersRound size={15} />
             </span>
             Need reliable {industry.name.toLowerCase()} talent?
           </p>
-          <Link href="/contact" className="group flex items-center gap-2 text-sm font-bold text-brand-light">
+          <Link href="/contact" className="group flex items-center gap-2 text-sm font-bold text-brand">
             Tell us what you need <ArrowRight size={15} className="transition group-hover:translate-x-1" />
           </Link>
         </Container>
@@ -57,11 +74,11 @@ export default function IndustryPageTemplate({ industry }) {
                 src={industry.image}
                 alt={`${industry.name} professionals`}
                 loading="lazy"
-                className="aspect-4/3 w-full rounded-3xl object-cover shadow-2xl shadow-slate-900/10"
+                className="aspect-4/3 w-full rounded-4xl border border-red-100 object-cover shadow-xl shadow-red-900/5"
               />
-              <div className="absolute -bottom-5 right-0 rounded-xl bg-ink px-5 py-4 text-white shadow-xl md:right-6">
-                <p className="font-display text-2xl font-extrabold text-brand-light">01</p>
-                <p className="mt-1 text-xs font-medium text-slate-300">A considered search,<br />from first brief to first day.</p>
+              <div className="absolute -bottom-5 right-0 rounded-2xl border border-red-100 bg-white px-5 py-4 shadow-xl shadow-red-900/10 md:right-6">
+                <p className="font-display text-2xl font-semibold text-brand">01</p>
+                <p className="mt-1 text-xs font-medium text-slate-500">A considered search,<br />from first brief to first day.</p>
               </div>
             </div>
           </Reveal>
@@ -90,20 +107,18 @@ export default function IndustryPageTemplate({ industry }) {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-brand py-20 md:py-24">
-        <div className="absolute inset-0 bg-noise opacity-20" />
+      <section className="relative overflow-hidden bg-[#fff0ef] py-20 md:py-24">
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border-24 border-brand/8" />
         <Container className="relative text-center">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/70">For candidates</p>
-            <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight text-white md:text-4xl">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand">For candidates</p>
+            <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
               Be part of Canada&apos;s {industry.name.toLowerCase()} industry.
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/80 md:text-base">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
               Looking for your next opportunity? Explore roles where your experience matters, your work is valued, and your next chapter can begin.
             </p>
-            <Link href="/jobs" className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand transition hover:bg-slate-100">
-              Explore open roles <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-            </Link>
+            <CTAButton href="/jobs" className="mt-8">Explore open roles</CTAButton>
           </Reveal>
         </Container>
       </section>
@@ -119,17 +134,14 @@ export default function IndustryPageTemplate({ industry }) {
               <Link href="/jobs" className="group flex items-center gap-2 text-sm font-bold text-brand">View all jobs <ArrowRight size={15} className="transition group-hover:translate-x-1" /></Link>
             </div>
           </Reveal>
-          <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {roleCards.map((role, i) => (
               <Reveal key={role.title} delay={i * 0.07}>
-                <Link href={role.href} className="group relative flex aspect-[0.78] items-end overflow-hidden rounded-2xl bg-ink p-5 shadow-lg shadow-slate-900/10">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={industry.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-55 transition duration-700 group-hover:scale-110 group-hover:opacity-70" />
-                  <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/30 to-transparent" />
-                  <div className="relative">
-                    <p className="mb-2 text-xs font-bold text-brand-light">0{i + 1}</p>
-                    <h3 className="font-display text-base font-bold leading-snug text-white">{role.title}</h3>
-                    <ArrowUpRight size={17} className="mt-4 text-white/70 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <Link href={role.href} className="group relative flex min-h-48 flex-col justify-between overflow-hidden rounded-3xl border border-slate-200 bg-[#fcfbf8] p-6 transition duration-300 hover:-translate-y-1 hover:border-red-200 hover:bg-white hover:shadow-xl hover:shadow-red-900/8">
+                  <div className="flex items-start justify-between"><p className="font-display text-3xl font-semibold tracking-tighter text-red-200 transition group-hover:text-brand">0{i + 1}</p><ArrowUpRight size={19} className="text-brand transition group-hover:rotate-45" /></div>
+                  <div>
+                    <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-brand">Open role</p>
+                    <h3 className="mt-2 font-display text-lg font-semibold leading-tight tracking-tight text-ink">{role.title}</h3>
                   </div>
                 </Link>
               </Reveal>
@@ -138,25 +150,20 @@ export default function IndustryPageTemplate({ industry }) {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-ink py-20 md:py-28">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={industry.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-linear-to-r from-ink via-ink/95 to-ink/60" />
+      <section className="relative overflow-hidden bg-white py-20 md:py-28">
         <Container className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.8fr]">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-light">For employers</p>
-            <h2 className="mt-4 max-w-2xl font-display text-3xl font-extrabold leading-tight text-white md:text-5xl">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-brand">For employers</p>
+            <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl">
               Build a {industry.name.toLowerCase()} team that stays.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm md:p-9">
-              <p className="text-base leading-relaxed text-slate-300">
+            <div className="rounded-4xl border border-red-100 bg-[#fff7f5] p-7 shadow-sm md:p-9">
+              <p className="text-base leading-relaxed text-slate-600">
                 Tell us about the role you need to fill. We will bring the market insight, candidate network, and process to find the right fit.
               </p>
-              <Link href="/contact" className="group mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-bold text-white transition hover:bg-brand-dark">
-                Recruit with us <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-              </Link>
+              <CTAButton href="/contact" className="mt-7">Recruit with us</CTAButton>
             </div>
           </Reveal>
         </Container>

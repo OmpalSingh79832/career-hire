@@ -10,15 +10,15 @@
 @import "@fontsource/inter/600.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0b1220;
+  --background: #f8f6f2;
+  --foreground: #111111;
 
   /* Brand palette — Canada-red accent on deep ink neutrals */
-  --brand-red: #c8102e;
-  --brand-red-dark: #970c22;
-  --brand-red-light: #ff4d5e;
-  --brand-ink: #0b1220;
-  --brand-ink-2: #111827;
+  --brand-red: #e52521;
+  --brand-red-dark: #b91c1c;
+  --brand-red-light: #ff7165;
+  --brand-ink: #111111;
+  --brand-ink-2: #242424;
 }
 
 @theme inline {
@@ -37,6 +37,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {

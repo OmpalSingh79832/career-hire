@@ -3,8 +3,9 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { heroSlides } from "@/lib/site";
+import CTAButton from "@/components/CTAButton";
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
@@ -23,7 +24,7 @@ export default function HeroSlider() {
   const slide = heroSlides[index];
 
   return (
-    <section className="relative h-[86vh] min-h-[600px] w-full overflow-hidden bg-ink">
+    <section className="relative overflow-hidden bg-[#f8f6f2] pb-10 pt-8 sm:pt-12 lg:pb-16 lg:pt-18 -mt-25">
       <AnimatePresence mode="sync">
         <motion.div
           key={index}
@@ -31,7 +32,7 @@ export default function HeroSlider() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
-          className="absolute inset-0"
+          className="absolute right-0 top-0 h-full w-full lg:left-[42%] lg:w-[58%]"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -40,12 +41,12 @@ export default function HeroSlider() {
             className="h-full w-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#f8f6f2] via-[#f8f6f2]/70 to-transparent lg:from-[#f8f6f2] lg:via-[#f8f6f2]/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#f8f6f2] via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6">
+      <div className="relative z-10 mx-auto flex min-h-155 max-w-350 flex-col justify-center px-5 sm:px-8 lg:min-h-170 lg:px-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -53,29 +54,25 @@ export default function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="max-w-2xl lg:max-w-[54%]"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 animate-pulse-slow rounded-full bg-brand-light" />
+            <span className="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.22em] text-brand">
+              <span className="h-2 w-2 animate-pulse-slow rounded-full bg-brand" />
               {slide.eyebrow}
             </span>
-            <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.1] text-white md:text-6xl">
-              {slide.title}
+            <h1 className="mt-6 max-w-2xl font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-8xl">
+              {slide.title.split(" ").map((word, wordIndex) => (
+                <span key={`${word}-${wordIndex}`} className={wordIndex === slide.title.split(" ").length - 1 ? "text-brand" : ""}>{word}{" "}</span>
+              ))}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               {slide.description}
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="group flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-sm font-semibold text-white shadow-xl shadow-red-950/40 transition hover:bg-brand-dark"
-              >
-                Hire With Us
-                <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-              </Link>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <CTAButton href="/contact">Hire With Us</CTAButton>
               <Link
                 href="/jobs"
-                className="rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
+                className="rounded-full text-center border border-slate-300 bg-white/70 px-10 py-4 text-sm font-bold text-ink transition hover:border-brand hover:text-brand"
               >
                 Find a Job
               </Link>
@@ -85,11 +82,11 @@ export default function HeroSlider() {
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4">
+      <div className="absolute bottom-8 left-5 z-10 flex items-center gap-4 sm:left-8 lg:left-12">
         <button
           onClick={prev}
           aria-label="Previous slide"
-          className="rounded-full border border-white/20 p-2 text-white transition hover:bg-white/10"
+          className="rounded-full border border-slate-300 bg-white/80 p-2 text-ink transition hover:border-brand hover:text-brand"
         >
           <ChevronLeft size={18} />
         </button>
@@ -99,7 +96,7 @@ export default function HeroSlider() {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-8 bg-brand" : "w-1.5 bg-white/40"
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-8 bg-brand" : "w-1.5 bg-slate-300"
                 }`}
             />
           ))}
@@ -107,7 +104,7 @@ export default function HeroSlider() {
         <button
           onClick={next}
           aria-label="Next slide"
-          className="rounded-full border border-white/20 p-2 text-white transition hover:bg-white/10"
+          className="rounded-full border border-slate-300 bg-white/80 p-2 text-ink transition hover:border-brand hover:text-brand"
         >
           <ChevronRight size={18} />
         </button>

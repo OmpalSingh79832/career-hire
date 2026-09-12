@@ -6,7 +6,7 @@ import JobCard from "@/components/JobCard";
 import { getAllJobs } from "@/lib/jobs";
 import { ArrowRight } from "lucide-react";
 
-export default function FeaturedJobsSection() {
+export default function FeaturedJobsSection({ homepage = false }) {
   const jobs = getAllJobs().slice(0, 3);
 
   return (
@@ -26,7 +26,7 @@ export default function FeaturedJobsSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {jobs.map((job, i) => (
             <Reveal key={job.slug} delay={i * 0.08}>
-              <JobCard job={job} />
+              <JobCard job={job} homepage={homepage} />
             </Reveal>
           ))}
         </div>

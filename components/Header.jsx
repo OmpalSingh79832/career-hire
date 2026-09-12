@@ -44,37 +44,18 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled
-        ? "border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-md"
-        : "border-b border-transparent bg-white"
-        }`}
-    >
-      {/* Utility bar */}
-      <div
-        className={`hidden overflow-hidden bg-ink text-slate-300 transition-all duration-300 md:block ${scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
-          }`}
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-end gap-6 px-6 py-2 text-xs tracking-wide">
-          <a href={`tel:${site.phone}`} className="flex items-center gap-1.5 hover:text-white">
-            <Phone size={13} />
-            {site.phoneDisplay}
-          </a>
-          <a href={`mailto:${site.email}`} className="hover:text-white">
-            {site.email}
-          </a>
-        </div>
-      </div>
+    <header className="sticky top-0 z-50 w-full bg-transparent px-3 py-3 sm:px-5 sm:py-4 lg:px-8">
+
 
       {/* Main nav */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 md:py-3">
+      <div className={`mx-auto flex max-w-350 items-center justify-between rounded-4xl border border-slate-200/90 bg-white/95 px-4 py-3 shadow-[0_12px_35px_rgba(17,17,17,0.07)] backdrop-blur-md transition-all duration-300 sm:px-6 lg:px-8 ${scrolled ? "shadow-[0_16px_45px_rgba(17,17,17,0.11)]" : ""}`}>
         <Link href="/" className="">
           <span className="pt-1">
-            <img src="/ch-logo-new.webp" alt="Career Hire" className="block h-auto w-40" />
+            <img src="/ch-logo-new.webp" alt="Career Hire" className="block h-auto w-32 sm:w-36" />
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navLinks.map((link) =>
             link.children ? (
               <div
@@ -123,7 +104,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-bold text-ink/80 transition hover:text-brand"
+                className="text-xs font-bold text-ink/80 transition hover:text-brand xl:text-sm"
               >
                 {link.label}
               </Link>
@@ -134,15 +115,15 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="group relative inline-flex items-center overflow-hidden rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-red-900/20 transition hover:shadow-red-900/30"
+            className="group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-bold text-white transition hover:bg-brand xl:px-6 xl:text-sm"
           >
-            <span className="relative z-10">Request a Service</span>
-            <span className="absolute inset-0 -translate-x-full bg-brand-dark transition-transform duration-300 group-hover:translate-x-0" />
+            <span>Request a Service</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand"><ArrowUpRight size={15} className="transition duration-300 group-hover:rotate-45" /></span>
           </Link>
         </div>
 
         <button
-          className="text-ink lg:hidden"
+          className="rounded-full bg-slate-100 p-2 text-ink lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -204,10 +185,11 @@ export default function Header() {
               ))}
               <Link
                 href="/contact"
-                className="mt-3 rounded-full bg-brand px-5 py-2.5 text-center text-sm font-semibold text-white"
+                className="group mt-3 flex items-center justify-center gap-3 rounded-full bg-brand px-5 py-2.5 text-center text-sm font-semibold text-white"
                 onClick={() => setMobileOpen(false)}
               >
                 Request a Service
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-brand"><ArrowUpRight size={15} className="transition duration-300 group-hover:rotate-45" /></span>
               </Link>
             </nav>
           </motion.div>

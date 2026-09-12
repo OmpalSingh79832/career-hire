@@ -103,8 +103,8 @@ export default function ContactPage() {
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/70">Ready when you are</p>
             <h2 className="mt-2 font-display text-2xl font-extrabold text-white md:text-3xl">Let&apos;s make your next hire count.</h2>
           </div>
-          <a href={`mailto:${site.email}`} className="group flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand transition hover:bg-slate-100">
-            Email our team <ArrowRight size={16} className="transition group-hover:translate-x-1" />
+          <a href={`mailto:${site.email}`} className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-brand transition hover:-translate-y-1 hover:bg-slate-100">
+            Email our team <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white"><ArrowRight size={16} className="transition duration-300 group-hover:rotate-45" /></span>
           </a>
         </Container>
       </section>

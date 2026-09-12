@@ -46,15 +46,15 @@ export default function HomePage() {
       <JsonLd data={faqSchema(faqs)} />
 
       <HeroSlider />
-      <StatsSection />
-      <ServicesSection />
-      <IndustriesSection />
-      <ProcessSection />
-      <WhyUsSection />
-      <FeaturedJobsSection />
-      <TestimonialsSection />
+      <StatsSection homepage />
+      <ServicesSection homepage />
+      <IndustriesSection homepage />
+      <ProcessSection homepage />
+      <WhyUsSection homepage />
+      <FeaturedJobsSection homepage />
+      <TestimonialsSection homepage />
       <FAQSection faqs={faqs} />
-      <CTASection />
+      <CTASection homepage />
     </>
   );
 }

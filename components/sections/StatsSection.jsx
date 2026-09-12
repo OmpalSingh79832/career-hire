@@ -9,9 +9,9 @@ const stats = [
   { value: "3", suffix: "", label: "Industries served" },
 ];
 
-export default function StatsSection() {
+export default function StatsSection({ homepage = false }) {
   return (
-    <section className="relative border-y border-slate-100 bg-white py-14">
+    <section className={`relative border-y py-14 ${homepage ? "border-red-100 bg-white" : "border-slate-100 bg-white"}`}>
       <Container className="grid grid-cols-2 gap-8 md:grid-cols-4">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.08} className="text-center">

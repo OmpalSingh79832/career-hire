@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { MapPin, Briefcase, ArrowRight } from "lucide-react";
 
-export default function JobCard({ job }) {
+export default function JobCard({ job, homepage = false }) {
   return (
     <Link
       href={`/jobs/${job.slug}`}
-      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl hover:shadow-red-900/5"
+      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-xl hover:shadow-red-900/5 ${homepage ? "border-red-100" : "border-slate-200"}`}
     >
       <div className="absolute right-0 top-0 h-24 w-24 -translate-y-1/2 translate-x-1/2 rounded-full bg-red-50 opacity-0 transition group-hover:opacity-100" />
       <div className="relative">

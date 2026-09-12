@@ -1,11 +1,10 @@
-import Link from "next/link";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
-import { ArrowRight } from "lucide-react";
+import CTAButton from "@/components/CTAButton";
 
-export default function CTASection() {
+export default function CTASection({ homepage = false }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand via-brand to-brand-dark py-20">
+    <section className={`relative overflow-hidden py-20 ${homepage ? "bg-brand" : "bg-linear-to-br from-brand via-brand to-brand-dark"}`}>
       <div className="absolute inset-0 bg-noise opacity-20" />
       <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
@@ -16,19 +15,8 @@ export default function CTASection() {
             Ready to build your team, or find your next role?
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="group flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand transition hover:bg-slate-100"
-            >
-              Request a Service
-              <ArrowRight size={16} className="transition group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="/jobs"
-              className="rounded-full border border-white/40 px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Browse Open Roles
-            </Link>
+            <CTAButton href="/contact" variant="white">Request a Service</CTAButton>
+            <CTAButton href="/jobs" variant="outline" className="border-white/40 bg-transparent text-white hover:border-white hover:bg-white/10 hover:text-white"><span>Browse Open Roles</span></CTAButton>
           </div>
         </Reveal>
       </Container>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { site, industries, services } from "@/lib/site";
+import { workWithRegions } from "@/lib/workWith";
 
 function FacebookIcon(props) {
   return (
@@ -36,7 +37,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 py-14 md:flex-row md:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-brand-light">
-              Let's talk
+              Let&apos;s talk
             </p>
             <h2 className="mt-2 font-display text-2xl font-bold text-white md:text-3xl">
               Ready to build your team, or find your next role?
@@ -53,22 +54,22 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="font-display text-xl font-extrabold text-white">
-              Career<span className="text-brand-light">Hire</span>
+            <Link href="/" className="inline-block">
+              <img src="/ch-logo-new.webp" alt="Career Hire" className="block h-auto w-36 brightness-0 invert" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
               Recruiting Canadian &amp; international talent since {site.founded}.
             </p>
-            <div className="mt-5 flex gap-4">
-              <a href={site.social.facebook} aria-label="Facebook" className="text-slate-400 transition hover:text-brand-light">
+            <div className="mt-6 flex gap-2.5">
+              <a href={site.social.facebook} aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-400 transition duration-300 hover:-translate-y-1 hover:border-brand hover:bg-brand hover:text-white">
                 <FacebookIcon />
               </a>
-              <a href={site.social.instagram} aria-label="Instagram" className="text-slate-400 transition hover:text-brand-light">
+              <a href={site.social.instagram} aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-400 transition duration-300 hover:-translate-y-1 hover:border-brand hover:bg-brand hover:text-white">
                 <InstagramIcon />
               </a>
-              <a href={site.social.linkedin} aria-label="LinkedIn" className="text-slate-400 transition hover:text-brand-light">
+              <a href={site.social.linkedin} aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-400 transition duration-300 hover:-translate-y-1 hover:border-brand hover:bg-brand hover:text-white">
                 <LinkedinIcon />
               </a>
             </div>
@@ -98,6 +99,21 @@ export default function Footer() {
                 <li key={s.slug}>
                   <Link href="/services" className="transition hover:text-brand-light">
                     {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+              Work With
+            </h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {workWithRegions.map((region) => (
+                <li key={region.slug}>
+                  <Link href={`/work-with/${region.slug}`} className="transition hover:text-brand-light">
+                    {region.name}
                   </Link>
                 </li>
               ))}
